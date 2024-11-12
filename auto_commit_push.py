@@ -2,8 +2,8 @@ import os
 import subprocess
 from datetime import datetime
 
-# Path to your git repository
-repo_path = "/path/to/your/repository"  # Replace with your actual repo path
+# Path to your local git repository (replace with the actual local path)
+repo_path = r"C:\Users\LENOVO\Desktop\automatic"  # Replace with your local repo path
 commit_message = f"Auto commit on {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
 
 def git_commit_and_push():
