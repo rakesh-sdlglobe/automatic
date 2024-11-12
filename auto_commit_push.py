@@ -37,4 +37,4 @@ def git_commit_and_push():
 while True:
     modify_file()           # Modify the file with a new update
     git_commit_and_push()    # Commit and push the modification
-    time.sleep(10)           # Wait before the next modification; adjust interval as needed
+    time.sleep(60)           # Wait before the next modification; adjust interval as needed
