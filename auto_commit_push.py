@@ -2,7 +2,7 @@ import os
 import subprocess
 from datetime import datetime
 
-# Path to your local git repository (replace with the actual local path)
+# Path to your local git repository (replace with the actual local path
 repo_path = r"C:\Users\LENOVO\Desktop\automatic"  # Replace with your local repo path
 commit_message = f"Code is committed on  {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
 
