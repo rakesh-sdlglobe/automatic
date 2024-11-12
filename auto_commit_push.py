@@ -1,12 +1,20 @@
 import os
 import subprocess
+import time
 from datetime import datetime
 
-# Path to your local git repository (replace with the actual local path
+# Path to your local git repository (replace with the actual local path)
 repo_path = r"C:\Users\LENOVO\Desktop\automatic"  # Replace with your local repo path
-commit_message = f"Code is committed on  {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
+file_to_modify = os.path.join(repo_path, "auto_update.txt")  # File to modify
+
+def modify_file():
+    """Function to modify the file by appending a timestamp."""
+    with open(file_to_modify, "a") as f:
+        f.write(f"Updated on {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
 
 def git_commit_and_push():
+    """Function to stage, commit, and push changes to GitHub."""
+    commit_message = f"Code commit on {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
     try:
         # Change to the repo directory
         os.chdir(repo_path)
@@ -25,5 +33,8 @@ def git_commit_and_push():
     except subprocess.CalledProcessError as e:
         print(f"An error occurred: {e}")
 
-# Run the function
-git_commit_and_push()
+# Loop to automatically modify, commit, and push every few seconds
+while True:
+    modify_file()           # Modify the file with a new update
+    git_commit_and_push()    # Commit and push the modification
+    time.sleep(10)           # Wait before the next modification; adjust interval as needed
